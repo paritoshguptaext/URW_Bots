@@ -1,0 +1,246 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="NewHubbleLogin" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_objAppBrw" Type="OutArgument(ui:UiElement)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1240,2306</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>NewHubbleLogin_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="62">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="NewHubbleLogin" sap:VirtualizedContainerService.HintSize="476,2241" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Default="C:\Program Files\InsightSoftware.com\Hubble\Hubble.exe" Name="HubbleExe" />
+      <Variable x:TypeArguments="x:String" Default="HubbleCred" Name="HubbleCredentials" />
+      <Variable x:TypeArguments="ss:SecureString" Name="pass" />
+      <Variable x:TypeArguments="x:String" Name="id" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[HubbleCredentials]" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="434,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[pass]" Username="[id]" />
+    <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="[HubbleExe]" sap:VirtualizedContainerService.HintSize="434,87" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
+    <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: Hubble Login" sap:VirtualizedContainerService.HintSize="434,1841" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="Never" OutUiElement="[out_objAppBrw]" ScopeGuid="c33ae3a6-4bcf-4b9a-8a46-fc97e8a241d7" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1552" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,241" sap2010:WorkflowViewState.IdRef="NTypeInto_1" IsPassword="True" ScopeIdentifier="c33ae3a6-4bcf-4b9a-8a46-fc97e8a241d7" SecureText="[pass]" Version="V1">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="316, 131, 249, 31" ElementType="InputBoxPassword" FriendlyName="'editable text'" FullSelectorArgument="&lt;ctrl automationid='PasswordBox' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PasswordBox' role='editable text' /&gt;" Guid="07207db4-b5d0-4610-82fe-fd1ce4bbdbea" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAP0AAAAjCAYAAABfAQyjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADYSURBVHhe7dcxCsJAFEVR97+L9GZHIrYBcQuRKX5ICpshxZh3HpxqtPsX8baaWdREbxa2LfppmoALqx2iXz5v4IJED2FED2FED2FED2FED2FED2FED2FED2FED2FED2FED2FED2FOib59vjxeT28wsHarta7o7/N8OPz9d5PfYFTtTmtd0e8PvtQvXvIbjKrdac0v/YlvMKp2pzX/6U9+gxG1W611Rw/8D9FDGNFDGNFDGNFDGNFDGNFDGNFDGNFDGNFDGNFDmJ/RA9dV26I3s4yJ3ixq6/oFpmFj/YI14EgAAAAASUVORK5CYII=" InformativeScreenshot="d8bfaa0c523d9c6b589b0437a3d6936b.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='HwndWrapper*' title='Hubble Login' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target DesignTimeRectangle="316, 115, 56, 16" ElementType="Text" FriendlyName="'Password'" FullSelectorArgument="&lt;ctrl name='Password' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Password' role='text' automationid='' check:text='Password' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADwAAAAUCAYAAADRA14pAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFISURBVFhH7ZRBSsRAEEU9kwdw7RHcuvQQ7tx5ByG48RbCgNcQXQqDV4i8wQc/RScZspskD4ruquqq7t/pmat+Y+yC184ueG1c39z2n1/f/14RTDItF14qs4JNvry+9Xf3D6f5JXO2YEj//fBx8jV8qTlpxR+fnge1xN2Dkbwwt7ZePjH7Zy5r+GiMiwTnQdxIcp604tTai94cloMBY86rkDwDvesl1Br81ACLn3SurU2lFce3L3tgCmGc6klMxvJzsck/rcTbSstGxvK5QiuOYGoVTj5HyLkQc8+cy1wNTD5p4bD1a4+tPSfOl8ynXX1o9SEmY/m52CLBrd+GsC6/pmTcfvTRp1/WIT73xJ+7kLqG+SLBwObksSrYuDkZiwMx6xnTFw+MpXhorYc8pxeZ6waCt8AueO1sV3DXdZuwgeCf3+PK7dj/AUu3FWFdfgaWAAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:TypeSecureText AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBetweenKeys="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DelayBefore="2000" DelayMS="3000" DisplayName="Type Secure Text 'editable text'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="TypeSecureText_1" SecureText="[pass]" SimulateType="True">
+                    <ui:TypeSecureText.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0cb09008-e34d-4cd6-818f-3ccd75c1d348" InformativeScreenshot="3cd0f58443d4011eb8c1d370c5eedb7c" Selector="&lt;ctrl automationid='PasswordBox' /&gt;" WaitForReady="INTERACTIVE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </ui:TypeSecureText.Target>
+                  </ui:TypeSecureText>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Entered pass&quot;]" />
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,248" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ClickType="Single" DisplayName="Click 'Log In'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c33ae3a6-4bcf-4b9a-8a46-fc97e8a241d7" Version="V1">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="505, 317, 39, 17" ElementType="Text" FriendlyName="'Log In'" FullSelectorArgument="&lt;ctrl automationid='startButton' /&gt;&lt;ctrl idx='2' name='Log In' role='text' /&gt;" FuzzyAccuracy="0.91" FuzzySelectorArgument="&lt;ctrl automationid='startButton' /&gt;&lt;ctrl automationid='' name='Log In' role='text' check:text='Log In' /&gt;" Guid="ca5f75e6-d53a-45ae-9a1b-fe59b953ac66" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACsAAAAVCAYAAADfLRcdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD9SURBVEhL7ZMxDsIwEATzwEiIH8EL4CN8gAJaaKClgYq0UASUKjLaCEsbZx0pwRZGwtIUt2ffrS9Olq1z8zNIMVWkmCpSTBUppgoHm+JgtsWxvSES6HW5FzLnhYO/WQ/RzZbVw9hVVs9Ovq7rd9Y0ddQei2sWtaf7easG72/goM8sinFx7GUzyPNZxEPNssHz7dqdPAc+s5PdrLmxq9tpqDy0MZO1sTzPgc/s4rSSjW0Dlf+qWf5Elj6zvgtaopkFKMbF3WZ4Bp++2cFm3cUH+E91C6E455exJxsSPAM2EwQpBgBTxnRVbjRSHAE+I6/gRoEUU0WKqSLFJMnNC+HR9tBFdbmgAAAAAElFTkSuQmCC" InformativeScreenshot="3bdb88a6bfb307888ca9eefe280a0361.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='HwndWrapper*' title='Hubble Login' /&gt;" SearchSteps="FuzzySelector, Image">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="483, 312, 82, 27" ElementType="Button" FriendlyName="'Log In'" FullSelectorArgument="&lt;ctrl automationid='startButton' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='startButton' role='push button' check:text='Log In' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFYAAAAfCAYAAAB9ATpTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE+SURBVGhD7ZXBTsJAFEX5QBLDH+EXyI/wAy5wqxvduoEV3epCjatm9JFOcjoMGOgbOph7kpvQvmnLO7wOkyCKILGFkNhC9MRO7qfKgBCJdQyRWMcQiXUMkVjHEIl1DJFYx5CLiF01z+GhecnWvGPP2rw32VrpEIl1DJFYx5AqxH58f3bfIPx+/tqrt23bVcPuPrk1MalYu/fs6bZ3D673DBldrDVOEbaW4qzOa+34VLHsbf22LTbRZFSxN4/z3SSl5+OU5ep27pyJjcd/XT8kZFSxd6/LbJNRRq4uscgxsbnnHhN76MeIkdgu1jhFpGJsKxi6x/5rsSlsjv/YadMmgvWFJrZMbCuguJpCrk6sTa9Nba42dkj1Yu1VJrVKtZCrm9iaQyTWMURiHUMk1jFEYh1DemKFHxJbCIktQgg/AmT88iNFf2AAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="2000" DisplayName="Click 'combo box'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c84c0ce5-5193-4694-bbe8-8a39999f9958" InformativeScreenshot="c979993b9bb36143287d8e6dbd1f2aac" Selector="&lt;ctrl automationid='profilesComboBox' /&gt;" WaitForReady="INTERACTIVE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Clicked profile&quot;]" />
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="1000" DisplayName="Click 'text  JPD910'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e8466d8f-4304-4f9b-9af6-b5c21be619e5" InformativeScreenshot="88267f91551598f93c1638ebdb76e8ce" Selector="&lt;wnd app='hubble.exe' cls='HwndWrapper*' idx='*' /&gt;&lt;ctrl name='JPD910' role='list item' /&gt;&lt;ctrl name='JPD910' role='text' /&gt;" WaitForReady="INTERACTIVE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;JPD910 selected&quot;]" />
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ContinueOnError="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="334,118" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="enter" KeyModifiers="None" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="bef0c421-9b60-416b-a031-240cc57af429">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Pressed enter to log in&quot;]" />
+            <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="371, 209, 640, 400" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAO9SURBVFhHvZdJTFRBEIaJeHABVFwSUQ96hGiMB/Vo9OYCXlwOGu9E4slEQRHReNAgGhMlccGIUS6gGMWAJsCwCBJZBNSByCJLRDZnUAaYpay/fW+cGerNm8FAJ19g+tX2uquq+0WYjWXnKsBCJp5JYQqYdsbOuDXwP+bwDDKQhY5mZRYDypqRnUwO0804GTIBMpCFDnTDCwTCGnHMVeYHIzkKBejCBmwpu0GHLsTsYCoZDyMZVkSnlVOMMB8AbMAWbBoHoT9k9jDYT8mYIiatgtZkVNKWrDpaf6lK/ZbkAoBN2J4ZhD7JIMrgzpm1mVWU866PBmyTVGIdoc0cSHToQcxcCW1iHWNhJEUvUanltDungWwOJ+nj1PN2WsrzkrwAfMCXn/MFDJJFUvAD+74t+z11jkxo7oluVfWKskGAL/j0BoByGWQkYZHEB830sH6ARn5P09iEk449aaMoDk6SFYAv+FQBRDKoWUnQEDhDPpx+2UFTLrdakV13GtQWSfIC8BmJABKYLm0yLBDA6gsWul3Tp7aiuvsnxV+rVdskyQcAnwkIAK0zaIfDWyHJpEzH3MYrNVT8eVgFkd/4neK4SkJISvhMQQDo35KAYmW6hZJyP1Jy4Rf1djAcyOKzZbT1eh019o+Ty+2hu7X9qlJiz1tEmz4UIABrwKQXvPmJ/E9km/xbcrU9Nsp800UZpZ10MYD0kk56xavgUZJEw7+m6ejjVrOcsCIAnGTSQ7WXNyzfNJPhj2zWNckHOwLAcSo9VJmO5R/it8Eo5a6X9vqrIrVY5m3HKDl5GwbHp+jQoxaz0nQHDQAgB7C0MJqU20yLzpSJeaCziRPySF6rKskV5jmgAjDcAhDLARS1DdG0y0P77jcrJ5KcDg4myITYD9QWGCYhQAAvtAD2hxBAmKgkDFqGKKWiVn0FmkwDQF8IYwVUGRo2InQ6nPtIPtT34bwWrnk2zoklwk4TuFckF1rpICfvKl49ya6GtxEZtmIYPP60jcYnXaoKPvTZVVmivCTwrL7XrmTtrIMeEmQlvK3Y8DDCW2VVzFkf8B5GQDyOEcABPnZ7Rh3kcLpVMqY8s9JJBn990eeQL5DtGXNQIpctbATaZfyOY2B4IVnObL9ZrxJww+VqWsI5gCSTwDPcEffea1I60JVsMv8uJD63IsMrGZYRexnK5RMykA2y9P5XMgz80DC9lP4n8qUUQ59kTK/lswQ25Wu5PvSHDKI0/TAJkdA+TPShCzHz/2nmOzSF+f84DRxQ1ozMwed5RMQf0daBEMbPLlMAAAAASUVORK5CYII=" InformativeScreenshot="e3d8d8fa1141c975435307f49a86356e.png" Selector="&lt;wnd app='hubble.exe' cls='HwndWrapper*' title='Hubble Login'/&gt;" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

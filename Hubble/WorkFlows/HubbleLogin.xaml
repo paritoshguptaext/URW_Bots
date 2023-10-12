@@ -1,0 +1,148 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="HubbleLogin" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1240,1541</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="32">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="HubbleLogin " sap:VirtualizedContainerService.HintSize="476,1476" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="HubbleExe">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">C:\Program Files\InsightSoftware.com\2015JDESP2\Hubble.exe</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Default="[in_Config(&quot;HubbleCred&quot;).ToString]" Name="Asset" />
+      <Variable x:TypeArguments="x:String" Name="UserName" />
+      <Variable x:TypeArguments="ss:SecureString" Name="Pass" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="[HubbleExe]" sap:VirtualizedContainerService.HintSize="434,87" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[Asset]" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="434,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[Pass]" Username="[UserName]" />
+    <Delay Duration="00:00:04" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: Hubble Login" sap:VirtualizedContainerService.HintSize="434,1076" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="Never" ScopeGuid="1830f0f6-0b82-4f8c-ae43-6f43a2706e66" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,787" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Double" DeselectAfter="True" DisplayName="Type Into 'User'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,216" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="1830f0f6-0b82-4f8c-ae43-6f43a2706e66" Text="[UserName]" Version="V1">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="123, 134, 236, 31" ElementType="InputBox" FriendlyName="'AFABOT1'" FullSelectorArgument="&lt;ctrl automationid='userTextBox' text='*' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='userTextBox' text='*' role='editable text' /&gt;" Guid="6e64c07e-373b-4847-bea9-4dde48a5e64e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPAAAAAjCAYAAACq/4cTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKRSURBVHhe7d1BbtNQEIfxXoFCV1AolJRS2kuwZcMZ2LFgx4KLsEHiHizgJgiOEvx3Ms34ZUz8bNMw0TfST42f88zqq6MixUcPnr5aTnM13tlUL2d333uyy+UevVh5/O8c97qoczqnxfweDfV8eW9fHsr5lqOTMMpaTUxjhWHWiEOcipA34oilCWqoMMYpmqDmFkYbKeK6S0XIbcBy+e49gCQs5E7AJ2cXAP5zbcDruzEBA8ncBtwgYCCZbsDPCBjIZDvgBgEDORAwkFgR8DUBA4kEAV8TMJAEAQOJETCQ2GwBf/v+o1Wul/P5y9fbc0P3fPj4qXNex37smrpWNHbe9vlrAZnNEvDrN2+XP3/9bum1P6cp12ToHv3U2DmL0O/RNfwvBoneY4H79wGZzRKw4vH8OU0ZqNTs8ccKsbwj65zGr2mif1dTrgFZzRKw3UVFr/05TRTS0D2K1T5ma03j32vsenas8cd+vVwDspoccBlgFJIfBVm7x9bLfZ7W/Z1Z46/p18s1IKvJAZcfgfXa/2FKU4ZUs0c/7dhe2/u86JeAP/br5RqQ1eSA+8afL0Pqm749/u5a3mklCltDwDh0kwJWSNFHWh+ZxodUu8fitGO9R2P77P3+jm5rBIxDp1btq32qA9bH3jIc8R+JNT6koXv8lCFaxDYWvqchYBy6TcCLcR+hAewPAQOJETCQGAEDiREwkFgb8PrL6JuAb5qAbwgYSKIb8DkBA5lsB9wgYCAHAgYSI2Agsd6AAeSwFfBO679Wr6z+62k/Vl9E37F+vtMu8bONa1yNFz7buEb8HOMpeAZy1+RnIEv4LOOxVpH+zfCApROxRIHdlSZKQp4FIW/EEUsTVI0wyLHieI9PF8s/5jYLZnnpdB0AAAAASUVORK5CYII=" InformativeScreenshot="ffa91492db03023eab6188849d812e4d.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='HwndWrapper*' title='Hubble Login' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="88, 142, 23, 15" ElementType="Text" FriendlyName="'User'" FullSelectorArgument="&lt;ctrl name='User' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='User' role='text' automationid='' check:text='User' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABsAAAATCAYAAABhh3Y4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEBSURBVEhLtdItEsIwEAXgXqLYzoCpoBhmqhBgEOCYapBgseCRnADLOUte2lc2sIX+RbyZdJPslwSCcJzk70y9JggnEvOLFhjjGXQxz6iOMQOjDrZ7PPMoXTlgVRsA7YAxesNfaY6x1gNsha1vd/uNxJvMNEjsHGsIG2O8OF+cWmMs3mZm89WZk/OAcYD5/lhhHLfGENvgcKrmWJOxByqxKF3WY3gmibGZXAMMNdz0a178nio2MosQLMapAHIzvrWnA8gboqm8rU2F4XkVjJF/AgnjJqwjrH8+JQ+HcYEVuIoxbDZISrAWQ9SNPWKwmQrJaBu7pMT+g4jWoE0E5htN8hf+Wg6cVsHbDgAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,241" sap2010:WorkflowViewState.IdRef="NTypeInto_2" IsPassword="True" ScopeIdentifier="1830f0f6-0b82-4f8c-ae43-6f43a2706e66" SecureText="[Pass]" Version="V1">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="123, 180, 236, 31" ElementType="InputBoxPassword" FriendlyName="'editable text'" FullSelectorArgument="&lt;ctrl automationid='PasswordBox' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='PasswordBox' role='editable text' /&gt;" Guid="2772f95d-5b81-4487-8df2-bb9b34b5db37" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPAAAAAjCAYAAACq/4cTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF8SURBVHhe7d3NUsIwGIVhr0FFVyr4AxV/8Jrcef8XgAlpoLWfQJJCe2bexbPp/p3JtJ2ci5unz3XXx0GTPj02vQ/orWt2nOtiy3zTUq8ncdX0sE81oEVwf1qXpnmau65/Ao7seCMzxhKE7LigcplxprBDLNGK2DMDjqzAzsWFJhjyNuDq+weAiBhyK+DJdA5g5LYBOwQMiGkH/EzAgJJuwA4BAxoIGBBGwIAwAgaEhYDD92MCBsTsAl4QMKCGgAFhvtX4ayYBA2IIGBBGwICwPwGvXMArAgZEEDAgjIABYQQMCCNgQBgBA8IIGBBGwIAwAgaEETAgbBNwfYc1AQNiQsDhMnoCBsTsAq5cwC8uYIeAAQ0EDAgjYEBYK+BbAgakdAL2/EMAGhoBf20CjuKR2lS/se5XuBGkF/VQWxp7+7jJ3DLONeYNZG92mL1rnGKZz9w1TmHvGJcaagO5Djgi5H3MIHONOWQX2THsOFO4oHKZcaawQyx13pCr9S98uqyjvzm6NwAAAABJRU5ErkJggg==" InformativeScreenshot="3d704f1973fabe16fd4d2b19c7ef3f4e.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='HwndWrapper*' title='Hubble Login' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="61, 188, 50, 15" ElementType="Text" FriendlyName="'Password'" FullSelectorArgument="&lt;ctrl name='Password' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Password' role='text' automationid='' check:text='Password' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADYAAAATCAYAAADbJP5YAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG5SURBVFhHzZOxTsMwEIZ5ClgZAKkMFFQkQOpUEAtMDKywdu0KMysvwMpzBn++/ombOKmVOinDJ/t8ju8+uz04Or0s8jAtOeziZAguGmQUE/9DcAAxsV/BAcVEgmC0ud0YQQwqubEEN8Refn43OL69L3N5SJCDSKPb8P3eLMq4ISaZ6/dl8fj1Xebykl8wWSwW5ydBMGi+i6bY2VXhcYW6xOarTx8Dc+3hVbV+/vwaXWO/csC6zmWcrz7cfOrmi/I7mLhvJEjMPkYaR0L7Zm9LP8bFHD65Ltj1U9Q+NR3mtq0x51zOJ2a0uTVvF1BJMkps5vapceLJkxN38ySxkHpzYQ4xYK4moW1Nl6TXU8wYnqWfJvBCejWraZKMfCcJ8PnOF7t7KOOwMStqsZpRjAR5u+34mr6pCymu15AY37eKuXk/sTXhDauBUAwQCV+pvsbIGWHM6ykGztVFVKL2elbTxCSq10z7j0XEgKbIMwKFaYI1QUOxtbBRXUg9DtdEmLN44eYmhpT28d/z+TaxJNaF9kP1/5NglF5iIlp4LLbL9RcT0cJj0S64u5iIFh6LpmA+MREtPBYSnBZ/Dwk/tNCUafoAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ClickType="Single" DisplayName="Click 'START'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1830f0f6-0b82-4f8c-ae43-6f43a2706e66" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="303, 371, 31, 15" ElementType="Text" FriendlyName="'START'" FullSelectorArgument="&lt;ctrl automationid='startButton' /&gt;&lt;ctrl name='START' role='text' /&gt;" FuzzyAccuracy="0.96" FuzzySelectorArgument="&lt;ctrl automationid='startButton' /&gt;&lt;ctrl name='START' role='text' automationid='' check:text='START' /&gt;" Guid="2afebb69-86b4-40ca-8b1d-374e5386de4c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACMAAAATCAYAAAAao7T0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADzSURBVEhL7ZLBDcIwEAQph3ZogV864MeLLkCiCyQkakA0wBe6CJqIjdYXX/KEh1caCfsuy9q+1Xrb9f9CC5PRwmQUYXbHc+9i73Z/fFelTpfrWAf3gSi8l7zGMJv9YSj4GgOtAbHvPc/Xe8D3Y68OmdXFGIYPMPViJBpwImeud2kNxTOhaOogN9CNQDyI99YO6nUxGWA+QvGJAMkgBlAw75WymVoMAzShuZmJT8Nv/1P1ykv7se571TAQzcENMtV6Y/BYF8UAe5FrzwyyYWdPt6le1ZbWMBlgae6dqcWg4LepXq/5AWId0mf6BS1MRgtTp+s/9zDVujAkMvAAAAAASUVORK5CYII=" InformativeScreenshot="e68a89072b16de2dee4aee21e1ffbaee.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='HwndWrapper*' title='Hubble Login' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="277, 363, 82, 31" ElementType="Button" FriendlyName="'START'" FullSelectorArgument="&lt;ctrl automationid='startButton' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='startButton' role='push button' check:text='START' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFYAAAAjCAYAAAAOuf2FAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG4SURBVGhD7ZrRTcMwEIa7BXQAoLxBaQdhBd7YgDee2AIktkBCYgbEArzSLUL+JBddrudUqfzHSNxJn1T7Tpb82UnUOIvT1U014CInaw7nPicDrstxdlXtixVcUcdSTzw3nUyPvyC4F7u6uw8yEGJJhFgSIZaEErupxW7comA6IZZEiCURYkmEWBK92GUtFXhFwXRCLImiYh+eXysd6Pv4/Opaw3h5e+/zQI8DbGDsQ2MxKSb29vGpmaRuQ4auQaBf13z/7Bp0v62VBUvl56CYWEwegrycYGVgp2nGag+12RQTCxBjlyVCy5CdCuyi6Fpv0XR+DoqKBRCAsLcBgBAZVqZI1rUSqXvwvGLbd8DFxAJMGDF2j7WXP35rgVIrY0m/zdt+FvKCvahYYEUBLSMVXq1dBJufAznBKPLw0hPFpZ2SkXrQoU92udRK7lCbjRwPLZaXZR5eEmP3ReSsdKB3udTqnF4Mm2czFFvjFQXTUWK3ITYjcorcid26RcF0QiyJEEsixJIIsSRCLIkQSyLEkgixJPbE5qH9e9zQvdzJhRzTp2m/QZuE+y3vsbRCSWKFWsa/FryufgFMKb0MMbmZjgAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="473, 111, 420, 467" IconBase64="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" InformativeScreenshot="aa28a5fd42c8b8d4602ed9328e058788.png" Selector="&lt;wnd app='hubble.exe' cls='HwndWrapper*' title='Hubble Login'/&gt;" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

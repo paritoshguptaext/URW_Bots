@@ -1,0 +1,136 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="NavigateToLease" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1240,1731</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="32">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Management.Automation</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>TimeSpan2</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="NavigateToLease" sap:VirtualizedContainerService.HintSize="476,1666" sap2010:WorkflowViewState.IdRef="Sequence_14">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: JD Edwards" sap:VirtualizedContainerService.HintSize="434,1512" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" OpenMode="Never" ScopeGuid="ba29a484-aac5-44e1-911a-1aee078fac31" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1296" sap2010:WorkflowViewState.IdRef="Sequence_15">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;E1 portal is logged in&quot;]" />
+            <uix:NClick ClickType="Single" DisplayName="Click 'DIV drop_mainmenu'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ba29a484-aac5-44e1-911a-1aee078fac31" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://useqxwl01t.us.ad.westfield.com:7003/jde/E1Menu.maf?jdeowpBackButtonProtect=PROTECTED" DesignTimeRectangle="339, 84, 36, 35" FriendlyName="'DIV drop_mainmenu'" FullSelectorArgument="&lt;webctrl id='drop_mainmenu' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl id='drop_mainmenu' tag='DIV' type='' aaname='' /&gt;" Guid="270719f6-f5e1-4d99-896a-58501c71907c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACgAAAAnCAYAAAB9qAq4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVFhHzZa/ahtBEIcNIcYB1Snc2LhKk5fIo7hQEsvBIAhERfALuHNtgjFJXATXxo0d5R9Eq00Ky36cCd/BmNPlt5KukJji47hvZ/eG2Z27W1tLXQuNlJGQMhJSRkLKSEgZCSkjIWUkpIyElJGQMhJStmA7vbPe+MxO89Cu8619z/fVlXs842rewki5AJ30xgb5i33Ld1VSzmX+O3XPOHHEq3XmIuUcnqa+fc4/qwSoVj+f2/N0aI/Tq2qcK/d4r+p5/lXNa641FylnQCV4GA9lGzdHb2WcwzhxnmTrSko5A7bLk3uSepV7NHpp66PX/8U6xHmSzFcxRaQswIHnTLFt9cp10r59zD/sWXo/FV+HeOYxv1XjSFmArqQKnK26J0H81zyx3fGHqqL1cYd5xLGOGpdIWcC3iQaoe0/QOck3tiWqxDzGWac5VkTKAt6R3q1OM0Eg1s+owzwfq/uZSFmAxXnPNb1KEPDNWH9PNn0RKQu0qSA0E1x6BUtnkKY4GH+y4Z/JzASXfgZLXezspIEdj6+KCS69i0vvwSYv0pFd5N9TCa7kPQjqS6LYSHsP78OVfUkg/LcY+CvxJNk2zhYN4N3NlXu8dz7xK/mbcagE28WZIgEnxP9gHQ48Xck2erW4co9v1RAKKSMhZSSkjISUkZAyElJGQspISBkJKcPQtX+bdwPPPd3bQgAAAABJRU5ErkJggg==" InformativeScreenshot="96fe231252dce35cd0d653f5f39df20e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='E1MENUMAIN_*' title='JD Edwards' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Complete" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Westfield Menus'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ba29a484-aac5-44e1-911a-1aee078fac31" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://useqxwl01t.us.ad.westfield.com:7003/jde/E1Menu.maf?jdeowpBackButtonProtect=PROTECTED" DesignTimeRectangle="353, 127, 88, 14" ElementType="Text" FriendlyName="'Westfield Menus'" FullSelectorArgument="&lt;webctrl tag='SPAN' aaname='Westfield Menus' innertext='Westfield Menus' /&gt;" FuzzyAccuracy="0.87" FuzzySelectorArgument="&lt;webctrl tag='SPAN' aaname='Westfield Menus' innertext='Westfield Menus' type='' check:text='Westfield Menus' /&gt;" Guid="2b3f31dc-2896-4c82-8f60-55f9081c564b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFwAAAASCAYAAADWvblEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJYSURBVFhH7ZbRcfQgDITdIf3kMS8UkQIoxaVcGYQVCK0wvvP/z4QndsYTG8NK+hC+HHlrqTbwxdrAF2sDXywD/ko5HDGf7RE645GP2VjkkefC2pBe9UHiwf/I8SfmI6Tc3tzolVMocyehXynM15/FFzEui84cJbavbYWow5FEyMqjFhhycEXeF/1EDjhg/JPRfwJHDSPYu/EFcp+USweWIk4U06vEpliS9QTUq6+DtLOoiwSKzv3+svcAJQAM2Nx3AN5jhBzjO+App+LHGwX/mIYTzTkPuYQY+2m0d2MD+IblGrix/DccQfWl3jfw4tMKwL3rqvZ5qEt9YMxTaJK8ZWTrH/lSgZPxvobVfKdNIx4NuNxrzs2vza/geN4kHxHVzbXJPOPhgVMS0gXduC4weDUYd7XB9MBZn4G/86UCXUFF47NKxxkuxmBCY26TIfIT4J0q5eDuoTvgXh64mGAR/rYEixS+/tVg/cjopdFbJ8gYBX4KfO5rBb4D5OR8K4yewwh8jEmNZw1gOfh76Hqy1YsbaABeJ8r3bSgopLME0E0Yg91LAreJT4HPfendCHh8VtE48gilrg5lBH5TzGPg4mfATX7eBTiSDPgF55UwKz8ckZKSJHuR2N1r50C10DbrI/A3vi7xOs6F2xrSGAMdp8+c5wALeeq8T8B1oyTv5uE3EPPM+wrcFaOq5ha4ShJDEbhoQQ3exgmEjovPDfD6OPPlYosUYLkuJ1LlfHnziobGYD/+//weOB7hUde409PmqR9zmwDf+ktt4Iu1gS/WBr5YG/hS5fwLZ+QJwQ6ChBsAAAAASUVORK5CYII=" InformativeScreenshot="b9b3c28cab0b30bfd6205976086cebef.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='E1MENUMAIN_*' title='JD Edwards' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Property Mgmt'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ba29a484-aac5-44e1-911a-1aee078fac31" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://useqxwl01t.us.ad.westfield.com:7003/jde/E1Menu.maf?jdeowpBackButtonProtect=PROTECTED" DesignTimeRectangle="482, 127, 79, 14" ElementType="Text" FriendlyName="'Property Mgmt'" FullSelectorArgument="&lt;webctrl tag='SPAN' aaname='Property Mgmt' innertext='Property Mgmt' /&gt;" FuzzyAccuracy="0.89" FuzzySelectorArgument="&lt;webctrl tag='SPAN' aaname='Property Mgmt' innertext='Property Mgmt' type='' check:text='Property Mgmt' /&gt;" Guid="468097b5-598b-4a12-af42-9d629e69ac8d" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFMAAAASCAYAAAAntuLJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJQSURBVFhH7ZS9jSJBEIXJiCwgBMiACHAxCAAfB4sACIIgwMYFF7dP34gPPXqZRbs7y+l086TWVFdV18/r6hmUHp2hJ7ND9GR2iJ7MDvFA5nK5LIPB4GGNx+NyPp9vHu8F9Wy329vuNQ6HQxkOh2U2m5Xr9XrTlkZGhw2fLkCc6XT6wM0HMlkJmql178J3yByNRmUymTyQhowO218lc7/fN7d6uVyaL0Uxsei9cacYHTDRarVq9PVE4OcZp8hYxl8sFnefzWbT2IwPqDP3IPPmJSCjw2YdWQOxrAM98nw+b2y8THT0wJ5YEIheu4S+JFOdzaYdOYuQNBayvhSgHzYnJGO2xZcUvtooHt+cCkBMCNvtdvd8LIihPsmUDHTm1R8dJKVNwtApmytrePnPzKKQbc49CXKPPQkDJLSRJBZwnr2Tb3yQZHIWUjjHmSRd2ODxeLzn89zpdLrrzFnXYOyctroGCUxZvJxMIVkkAwTxdoWJ60R8bQR7fWHEodmMD7IR8kMKMdCnn8i8+nAeua7hMzLTljVk/JTFt8ls25OYRDmZube5GnU8kI0AZP59+GUTIhskDuQbM8lkj17Ccl/b3kImwDeLqP+ZFsFXP2xJtDF85nX8JNO4bTViz2bx9ckmmci+KvvKPpRB1lDH75RMdT5XbSbSlv8ggF8+cWzP4tMEPjbzzCeRDeprP+gkE1gDhK/X68aXM+iVQRuZLGrP3h7I7ArPbq0L/Fbcz4boK/hnyHSS2qbyK6A+JtLXkZP4E/wKmf8rejI7RE9mZyjlD77G+/Cn3aOVAAAAAElFTkSuQmCC" InformativeScreenshot="50a37dc16c8e65758c2ba401332c1ca0.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='E1MENUMAIN_*' title='JD Edwards' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Inquiries'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ba29a484-aac5-44e1-911a-1aee078fac31" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://useqxwl01t.us.ad.westfield.com:7003/jde/E1Menu.maf?jdeowpBackButtonProtect=PROTECTED" DesignTimeRectangle="634, 127, 45, 14" ElementType="Text" FriendlyName="'Inquiries'" FullSelectorArgument="&lt;webctrl tag='SPAN' aaname='Inquiries' innertext='Inquiries' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='SPAN' aaname='Inquiries' innertext='Inquiries' type='' check:text='Inquiries' /&gt;" Guid="450fe37c-d1a6-43c0-809b-72ae3f8b9099" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADEAAAASCAYAAADypDaEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFRSURBVEhL7ZLLTcNAFEVdkKtwBTgNhALCPhQRtqQJYAO0QFog3gE7SA2DjqUTPY8Ugy0+AXlx5Zn3ue/d6yle33bpr2MScSz4fyKWy/N0uV53Cr4Kt3f3aT4/TU/PL504d+LkY3wIfkzEd+KgCJypZ7MWRVGksizTw2bT5h63Taqqqo0vFmd7J8lTT14O3fe8bZr2e1LXbf/V9U3nT8DBLHLMkMs/RhxEs3tFUMxXAvLWeY51Q0TYH5+T5nB2jv3sZQ91xJ3TKyI6IUk+KC4xRIRzYj+IMyNfFJGjV4QLcI8iIGYA8bEiuOf9wOci4jNmvnH7wSgRn/0T9Mgh30cirCd3CLmRg0VYZ446nYEU5zi7XKzj3CciN4iZPq+4G3d6NGuUCAezPI6AONhnsFpd7Dnk6xPBXSPk0G0FEtc04qAjYgzyJX4Dk4hjwSTiOLBL720cyCUrTxO0AAAAAElFTkSuQmCC" InformativeScreenshot="6094e708f03f6ee48047f1e71f94e946.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='E1MENUMAIN_*' title='JD Edwards' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Leases'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="ba29a484-aac5-44e1-911a-1aee078fac31" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://useqxwl01t.us.ad.westfield.com:7003/jde/E1Menu.maf?jdeowpBackButtonProtect=PROTECTED" DesignTimeRectangle="739, 155, 39, 14" ElementType="Text" FriendlyName="'Leases'" FullSelectorArgument="&lt;webctrl tag='A' aaname='Leases' innertext='Leases' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='A' aaname='Leases' innertext='Leases' type='' check:text='Leases' /&gt;" Guid="e451e629-9965-4d8c-a9ae-cca3b28b05f0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACsAAAASCAYAAADCKCelAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAExSURBVEhL7ZKxSgNBEIZ9CB/Ep/AZLKxtbexDamtbbSxiJ9hZpYkIPoBoYyVpAkJAFCxGviPfMi45PISDRO6HIdnZ2Zlv5mYntkgDbF/aXtjx5KGxTdX/hH16fYu946vYPTyP/dFNLJYfq5uIy+lz48eIIRbNHufFn9+8f37F0dm03BGnqK+/ZukESxGKmZQYilEUXwYxB+eD09sCTkMYynV4b4P8Ny92cnFX3qNOsDUQCQDxnAXQOliFPzfulDln2HXqDOun0ZyGxfKdObh3dYQQNsdjTj2vlD7VGbatYxLmOydbS3/bxGs5BL8A+tPOUti1yLDGkaNeFeIwlOs4fXLbECLfrzubPw1WJ8XnCiAB8fN7ff9S4Clunjx9p+adTbT51Q/YTdcA25cG2H4U8Q0lZUz/jxmt1wAAAABJRU5ErkJggg==" InformativeScreenshot="282b297017f7d3fde26f311b21177771.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='E1MENUMAIN_*' title='JD Edwards' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Navigated to lease&quot;]" />
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1382, 744" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="05508a868193b1d5c706802a7b29c7e6.png" Selector="&lt;html app='chrome.exe' htmlwindowname='E1MENUMAIN_*' title='JD Edwards' /&gt;" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

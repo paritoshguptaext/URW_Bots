@@ -1,0 +1,786 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="DownloadGL010" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_sysexcep" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1240,9138</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="30">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="66">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="DownloadGL010" sap:VirtualizedContainerService.HintSize="1102,9033" sap2010:WorkflowViewState.IdRef="Sequence_7">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="GL010ObjAccount" />
+      <Variable x:TypeArguments="x:Int32" Default="[Convert.ToInt32(DateTime.Now.AddMonths(-1).ToString(&quot;MM&quot;))]" Name="CurrentMonth" />
+      <Variable x:TypeArguments="x:Int32" Default="[Convert.ToInt32(DateTime.Now.Date.ToString(&quot;yyyy&quot;))]" Name="CurrentYear" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="GL010ObjectAccount" DisplayName="Get Asset" sap:VirtualizedContainerService.HintSize="1060,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+      <ui:GetRobotAsset.Value>
+        <OutArgument x:TypeArguments="x:String">[GL010ObjAccount]</OutArgument>
+      </ui:GetRobotAsset.Value>
+    </ui:GetRobotAsset>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1060,8764" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence sap:VirtualizedContainerService.HintSize="1022,8537" sap2010:WorkflowViewState.IdRef="Sequence_22">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If Condition="[Convert.ToInt32(DateTime.Now.ToString(&quot;MM&quot;)) = 01]" sap:VirtualizedContainerService.HintSize="980,51" sap2010:WorkflowViewState.IdRef="If_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Int32">[CurrentYear]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(DateTime.Now.Date.AddYears(-1).ToString("yyyy"))]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </If.Then>
+            <If.Else>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_18">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Else>
+          </If>
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: Open..." sap:VirtualizedContainerService.HintSize="980,797" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" OpenMode="Never" ScopeGuid="bd6a5590-bcf8-4c0d-9c50-c1a3a8aff5c1" Version="V1">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,508" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NMouseScroll CursorMotionType="Smooth" Direction="Down" DisplayName="Mouse Scroll 'GL007-Account Balance'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NMouseScroll_1" InteractionMode="HardwareEvents" MovementUnits="3" ScopeIdentifier="bd6a5590-bcf8-4c0d-9c50-c1a3a8aff5c1" Version="V1">
+                    <uix:NMouseScroll.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="283, 242, 560, 17" FriendlyName="'GL007-Account Balance'" FullSelectorArgument="&lt;wnd ctrlname='browseRepositoryPanel' /&gt;&lt;wnd ctrlname='splitContainer' /&gt;&lt;wnd ctrlname='workspaceListView' /&gt;&lt;wnd ctrlname='lvBulbs' /&gt;&lt;ctrl name='GL007-Account Balance Inquiry By Object Account' role='list item' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='browseRepositoryPanel' /&gt;&lt;wnd ctrlname='splitContainer' /&gt;&lt;wnd ctrlname='workspaceListView' /&gt;&lt;wnd ctrlname='lvBulbs' /&gt;&lt;ctrl name='GL007-Account Balance Inquiry By Object Account' role='list item' automationid='' check:text='GL007-Account Balance Inquiry By Object Account' /&gt;" Guid="a58a8e77-cebb-4709-9f60-24fb25b5de87" ImageBase64="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" InformativeScreenshot="58a3acad6af50acc84edf3bf8a8197e9.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' ctrlname='OpenSaveRepositoryObjectDialog' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Interactive" />
+                    </uix:NMouseScroll.Target>
+                  </uix:NMouseScroll>
+                  <uix:NClick ClickType="Double" DisplayName="Click 'GL010-GL Transaction'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="bd6a5590-bcf8-4c0d-9c50-c1a3a8aff5c1" Version="V1">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="283, 344, 560, 17" FriendlyName="'GL010-GL Transaction'" FullSelectorArgument="&lt;wnd ctrlname='browseRepositoryPanel' /&gt;&lt;wnd ctrlname='splitContainer' /&gt;&lt;wnd ctrlname='workspaceListView' /&gt;&lt;wnd ctrlname='lvBulbs' /&gt;&lt;ctrl name='GL010-GL Transaction Detail_with Subledger Description' role='list item' text='GL010-GL Transaction Detail_with Subledger Description' /&gt;" FuzzyAccuracy="0.91" FuzzySelectorArgument="&lt;wnd ctrlname='browseRepositoryPanel' /&gt;&lt;wnd ctrlname='splitContainer' /&gt;&lt;wnd ctrlname='workspaceListView' /&gt;&lt;wnd ctrlname='lvBulbs' /&gt;&lt;ctrl name='GL010-GL Transaction Detail_with Subledger Description' role='list item' text='GL010-GL Transaction Detail_with Subledger Description' automationid='' check:text='GL010-GL Transaction Detail_with Subledger Description' /&gt;" Guid="738ce804-25e6-45b2-aece-26af21695f3b" ImageBase64="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" InformativeScreenshot="f9886e7d0d7910ed183c1f8bbd5b602c.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' ctrlname='OpenSaveRepositoryObjectDialog' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="367, 114, 632, 500" IconBase64="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" InformativeScreenshot="470f725bf4b34d93fae268a9fe3deb12.png" Selector="&lt;wnd app='hubble.exe' ctrlname='OpenSaveRepositoryObjectDialog'/&gt;" />
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: Hubble [JPD910]" sap:VirtualizedContainerService.HintSize="980,7517" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" OpenMode="Never" ScopeGuid="8905c566-7b58-45b5-b65c-979688375bb3" Version="V1">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="946,7228" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:Boolean" Name="IsExcelOpen" />
+                    <Variable x:TypeArguments="s:Int32[]" Default="[{200330,200331,200332}]" Name="AccountsArr" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="904,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;GL010 report open&quot;]" />
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Business Unit'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="904,216" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="HardwareEvents" ScopeIdentifier="8905c566-7b58-45b5-b65c-979688375bb3" Text="*" Version="V1">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="113, 208, 194, 16" ElementType="InputBox" FriendlyName="'12206'" FullSelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow*' /&gt;&lt;wnd ctrlname='BU' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='panelInput' /&gt;&lt;wnd ctrlname='borderPanel' /&gt;&lt;wnd ctrlname='innerTextBoxBorderPanel' /&gt;&lt;wnd ctrlname='txtInput' aaname='Business Unit' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow*' /&gt;&lt;wnd ctrlname='BU' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='panelInput' /&gt;&lt;wnd ctrlname='borderPanel' /&gt;&lt;wnd ctrlname='innerTextBoxBorderPanel' /&gt;&lt;wnd ctrlname='txtInput' aaname='Business Unit' /&gt;" Guid="c913cb50-b61a-4315-a69d-d2bfd3b798bc" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMYAAAAUCAYAAADWbUJ5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEgSURBVGhD7dlRroMgEEBR18WCWA+rcTMsZgoCOoWh1T9M7kmaV8fqF7fYvE0ADAgDMBAGYCAMwEAYgGEMY/eybV72epjtfkuz8nIh1ul8Xu5hzJPrGifdKWAZKowowaUF6714HUYMEs6DPZ2rC3o2P9636/W8RNGHAqzIeJTSC7uX47G+6dU87xb+ujoGV2NI93UhfRJY38MwZueu+RVC1UI5/ubdqD5KEQkW9iiM2aOQnv8Mg8cqvMTNMMrvj3Ehj/PfO4a6a38MLORGGDd+V2jdgj9DIQy8yP8wZgt4No9B3Hl9vleLR78vOw1dYFV/w8jf+O1/Eu2Vd4DZ/JCjqbOvxX9EUz9PFViYEQYAwgAMhAEYCAMwEAZgIAxgIPIBPYe50ysUbrgAAAAASUVORK5CYII=" InformativeScreenshot="a6149231a4cd7a7624777575c722bebe.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='HwndWrapper*' title='Hubble [JPD910]' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="12, 200, 88, 35" ElementType="Text" FriendlyName="'Business Unit'" FullSelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow0' /&gt;&lt;wnd ctrlname='BU' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='lblLabel' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow0' /&gt;&lt;wnd ctrlname='BU' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='lblLabel' check:text='Business Unit' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFwAAAAnCAYAAACCCi9aAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGjSURBVGhD7ZWLrcMgDEUZj4EYJ7tklW5CMYEAfg55TdtbRbpHilR+xj4h1EUChcLBUDgYCgdD4WAoHAyFg6FwMBQOhsLBUDgYCgdD4WAoHAyFgzGEP+LiXXSuPiGuZeR11hhSjHA9wAVkT53zVtN5Ht/P90C4j8ujtBYfHdbYm7wjfGQNn5d/KjwZj94vqfcu3Fy4nHDfGqP8ob0VVa+iLdG++PJ7DWpOQWKV/naNWTGtvp4z4bM82lqRXcfdBw/ca3f4TLgU8Kd6LTzFq3Nkfl2r49ZYVkxzn57/CD/IQ6393ZVSk5gJz/Nc+xoyWngvomtL0fsLLo/EtWKa+/TofYS+pkkeauw3wnO7bDwTXsh/sklIO012MUP75NSOMTesvg2dv3An4flE9Qm1sVy0Ep7ZBR4XM7TzHlqSwnopBy8q3799v8zb85zkocaAwvvPexRRT5Y8PoR2wqWofY1VwKzQxLC+XBlWTHMfja5hsu/QPsjJOlQXMYSTb0LhYCgcDIWDoXAwFA6GwsFQOBgKB0PhYCgcDIWDoXAwFA6GwqHE+AR/ZRnlB56B2wAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                  </uix:NTypeInto>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="904,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;input business unit&quot;]" />
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Subsidiary'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="904,216" sap2010:WorkflowViewState.IdRef="NTypeInto_4" InteractionMode="HardwareEvents" ScopeIdentifier="8905c566-7b58-45b5-b65c-979688375bb3" Text="*" Version="V1">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="821, 208, 168, 16" ElementType="InputBox" FriendlyName="'001'" FullSelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow*' /&gt;&lt;wnd ctrlname='Subsidiary' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='panelInput' /&gt;&lt;wnd ctrlname='borderPanel' /&gt;&lt;wnd ctrlname='innerTextBoxBorderPanel' /&gt;&lt;wnd ctrlname='txtInput' aaname='Subsidiary' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow*' /&gt;&lt;wnd ctrlname='Subsidiary' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='panelInput' /&gt;&lt;wnd ctrlname='borderPanel' /&gt;&lt;wnd ctrlname='innerTextBoxBorderPanel' /&gt;&lt;wnd ctrlname='txtInput' aaname='Subsidiary' /&gt;" Guid="0d62d374-9cea-4bc1-8a28-7c022ab3dec4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKwAAAAUCAYAAAAQqNbAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC+SURBVGhD7djbCcQgFEVR67Ig67Eam7GYm2jEB4OfyhzYCwLJ9XejQWeAEIKFFIKFFIKFFIKFlDXYFMw5Vx8fcxu+dvOirgVL7RM4aQo2WejhlXdvX5u7ebbo34hDmNaBs0awZacMI7sc/beb7ubdHDRwVg/2J8QW6m4+ECzuIVhIIVhI4R8WUkawOZrv4ZUI223Abt4RLO4ZwRZlN233reupv5lXBIt71mCBP0ewkEKwkEKwkEKwkEKwEGL2AMwFAAW6O6fhAAAAAElFTkSuQmCC" InformativeScreenshot="7467e0559594d7304b947f681449ece3.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='HwndWrapper*' title='Hubble [JPD910]' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="694, 200, 114, 35" ElementType="Text" FriendlyName="'Subsidiary'" FullSelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow0' /&gt;&lt;wnd ctrlname='Subsidiary' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='lblLabel' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow0' /&gt;&lt;wnd ctrlname='Subsidiary' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='lblLabel' check:text='Subsidiary' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHYAAAAnCAYAAADadbxDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHISURBVHhe7ZbbtYQgDEUtj4Ioh15sxU64EogERB3n687h7LXmIYPgZJPAEgkkFAsKxYJCsaBQLCgUCwrFgkKxoFAsKBQLCsWCQrGgUCwoFAsKxYIyFrv6uCxLebkYttJ+yRr94vf3T0n9l+iHN2wxOJ3zrh+54yx2C9E1ktYYHs2+FXuHFUu+5Sw2ZevrFKHY/8agFOfy5/rIpkx2YQ97obkuYm0JPxZHEqVlXctqtxCa+0JXirVfO04dP/cJwR2/2XW5pfbXC/X3uTg81SBWP09i+2CXe4cVwAiT0m8yVCSPxFpsVue5joXYzDdv9l+IVYygTzJWvmdSpkiwRVxfAUz/k/hemhnXZrY+V9/HXvfPPBEPYnc08N+KLUhJHMg4l8oLsek5zPyrvxKbx8yPnD9nZHh4ssGogU8BrGVN2huxNivbvgdHdhoZktFGjGTlWWy7APJ8+dKMpaQxZa/u2idikLF1f5WXyRIJbml33p8ydniAEVE6nga6lWHHvT48ZZk6jr/JWP0Pbfmfi+dS/JPMe2hSMMV2+/GMgInVbWTevVUBLcWEYkGhWFAoFhSKBYViQaFYUCgWFIoFhWJBoVhQKBaSGP8A3FowRn4/dwQAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NTypeInto>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="904,91" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;input subsidiary&quot;]" />
+                  <uix:NClick ClickType="Single" DisplayName="Click 'F'" sap:VirtualizedContainerService.HintSize="904,156" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8905c566-7b58-45b5-b65c-979688375bb3" Version="V1">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="773, 281, 48, 23" ElementType="DropDown" FriendlyName="'1'" FullSelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='cbxPeriodFrom' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='cbxPeriodFrom' /&gt;" Guid="b8d8e9c2-5395-4757-8248-c2030c5ed4ea" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADQAAAAbCAYAAAAzgqwIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACmSURBVFhH7dGxDQMhDIVhdsouFF4mg9CwABUTZAgGYJIXvYLoohB0aSLbh6W/sWk+EeBs/IJKKaYb8wbqvZtsg7S3Qdq7OCgLQhDk2U1JJ0EP3G8BQQTiAzTKfwfVWqd7NrupBrXWEGNESunjxh1vfHPcq/+hGeobhqkHsSNqhWEmQGygVhhmBsQIWWGYKdCZfgTpb4O0t0Hauw7IcmNeIC/jDAQ8AUqU0+1VK784AAAAAElFTkSuQmCC" InformativeScreenshot="fdbd5cae4bb75f358ae42ede038e6d90.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='HwndWrapper*' title='Hubble [JPD910]' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="758, 278, 15, 35" ElementType="Text" FriendlyName="'F'" FullSelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='lblRangeFrom' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='lblRangeFrom' check:text='F' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABMAAAAnCAYAAADtu3N3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABmSURBVEhL7dDLCYAwEIThLS8FWU5a2BpsJalkfBCJiggjexCdH+YQAt9hDYEJ4wvB3H1dGFZrFUYkjI/ECnIymPUNY/uae4Al5NKepz6F7W92hHWzq0Kx+36ELQvBtoTxCeN7KwZMNW9BKecQCQ8AAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ClickType="Single" DisplayName="Click '4'" sap:VirtualizedContainerService.HintSize="904,156" sap2010:WorkflowViewState.IdRef="NClick_7" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8905c566-7b58-45b5-b65c-979688375bb3" Version="V1">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="1, 46, 46, 15" FriendlyName="'4'" FullSelectorArgument="[String.Format(&quot;&lt;ctrl name='F' role='list' /&gt;&lt;ctrl name='{0}' role='list item' /&gt;&quot;, CurrentMonth)]" FuzzySelectorArgument="&lt;ctrl name='F' role='list' /&gt;&lt;ctrl name='{{CurrentMonth}}' role='list item' automationid='' check:text='{{CurrentMonth}}' /&gt;" Guid="2e2e2dda-7b5b-4d19-a77d-8814a6936ac7" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAATCAYAAADWOo4fAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACISURBVEhL7dO9CcAgEAVg53Ky4BROY+kUgRQBOxtxALuXHAkhf6SNTzx4qNj4qaeMMWAtOXsbADVMlOmAv/MJ0L4AKUO/7NWSD0CEky5hBcjtO58xUwLsevAxbiMfIMCmAmvXOSNAvs7sw7bmA+yNe6+KEY8XuISzB06hBxCkA/7OAWCtBgAGC143kNmIQCkdAAAAAElFTkSuQmCC" InformativeScreenshot="f84b9c63e619104bf87b6bd638e04b2a.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='ComboLBox' idx='*' /&gt;" SearchSteps="Selector, FuzzySelector, Image" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="904,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;select previous months &quot;+ CurrentMonth.ToString]" />
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="904,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,248" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NSelectItem DisplayName="Select Item 'F'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="[CurrentMonth.ToString.Trim]" ScopeIdentifier="8905c566-7b58-45b5-b65c-979688375bb3" Version="V1">
+                          <uix:NSelectItem.Items>
+                            <scg:List x:TypeArguments="x:String" Capacity="14">
+                              <x:String>1</x:String>
+                              <x:String>2</x:String>
+                              <x:String>3</x:String>
+                              <x:String>4</x:String>
+                              <x:String>5</x:String>
+                              <x:String>6</x:String>
+                              <x:String>7</x:String>
+                              <x:String>8</x:String>
+                              <x:String>9</x:String>
+                              <x:String>10</x:String>
+                              <x:String>11</x:String>
+                              <x:String>12</x:String>
+                              <x:String>13</x:String>
+                              <x:String>14</x:String>
+                            </scg:List>
+                          </uix:NSelectItem.Items>
+                          <uix:NSelectItem.Target>
+                            <uix:TargetAnchorable DesignTimeRectangle="773, 273, 48, 23" ElementType="DropDown" FriendlyName="'1'" FullSelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='cbxPeriodFrom' /&gt;&lt;ctrl name='F' role='combo box' text='1' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='cbxPeriodFrom' /&gt;&lt;ctrl name='F' role='combo box' text='1' automationid='' /&gt;" Guid="b761da35-0182-4007-aebe-6ec47d35d78b" InformativeScreenshot="60a5eaa3ca49c4b4f124137b301a43f7.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='HwndWrapper*' title='Hubble [JPD910]' /&gt;" SearchSteps="Selector, FuzzySelector" WaitForReadyArgument="None">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target DesignTimeRectangle="758, 270, 15, 35" ElementType="Text" FriendlyName="'F'" FullSelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='lblRangeFrom' /&gt;&lt;ctrl name='F' role='text' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='lblRangeFrom' /&gt;&lt;ctrl name='F' role='text' automationid='' check:text='F' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABMAAAAnCAYAAADtu3N3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABmSURBVEhL7dDLCYAwEIThLS8FWU5a2BpsJalkfBCJiggjexCdH+YQAt9hDYEJ4wvB3H1dGFZrFUYkjI/ECnIymPUNY/uae4Al5NKepz6F7W92hHWzq0Kx+36ELQvBtoTxCeN7KwZMNW9BKecQCQ8AAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NSelectItem.Target>
+                        </uix:NSelectItem>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="904,51" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,248" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'WindowsForms10.COMBOBOX...'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="tab" KeyModifiers="None" SpecialKey="True">
+                          <ui:SendHotkey.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f9b0495a-0208-40e0-a425-2c25e41fcfd1" InformativeScreenshot="125bdcef73a3e02b172a1327ae7e70eb" Selector="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='cbxPeriodFrom' /&gt;" WaitForReady="INTERACTIVE">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                            </ui:Target>
+                          </ui:SendHotkey.Target>
+                        </ui:SendHotkey>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
+                  <uix:NClick ClickType="Single" DisplayName="Click 'F'" sap:VirtualizedContainerService.HintSize="904,156" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8905c566-7b58-45b5-b65c-979688375bb3" Version="V1">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="825, 281, 64, 23" ElementType="DropDown" FriendlyName="'2017'" FullSelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='cbxYearFrom' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='cbxYearFrom' /&gt;" Guid="a7d7796f-fd0a-40a7-8957-5e7b262c0be8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEQAAAAbCAYAAADFyymQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFFSURBVFhH7ZbLrYQwDEXTU3phkWZSCJs0wIoKUgQFUIkfV5APTogyaGbeSNjSkcDOxscmQpHEKUQIiyhkmqZHE+IkZF3XRyJCGCKEIUIYIoQhQhjdQpxRpNSOtj7VnKnnY82QO9691fFsItV/gT4h3pJ14d2RUZqsD8+hoTzvyeqtWWOyegkEFRL/me4NSaDZo3FsgHGxVjaYC+O0au9jnudqHtRqN4SkRgoBTFCz6e3sp7djWRYahoHGcSxqyKGGM3n+ZSG4S0Ij94VkW1bU3ktNypUM8IKQ/V7IBdwWst1J+nTus+RSWjJAp5CLid68Q3DOxEv6OwQpLRmgT0gx+QNMOjaM5rm0mpDvfS4ciGjJAF1CMFH+/xA3AbKOXDn1mpCLz+hH6NuQByFCGCKEIUIYIoQhQhiXQp5MiChEYg8RcgqiP4f4fo0jvs9yAAAAAElFTkSuQmCC" InformativeScreenshot="585ab61a7a27f05431c74cc4caee66fe.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='HwndWrapper*' title='Hubble [JPD910]' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="758, 278, 15, 35" ElementType="Text" FriendlyName="'F'" FullSelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='lblRangeFrom' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='lblRangeFrom' check:text='F' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABMAAAAnCAYAAADtu3N3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABmSURBVEhL7dDLCYAwEIThLS8FWU5a2BpsJalkfBCJiggjexCdH+YQAt9hDYEJ4wvB3H1dGFZrFUYkjI/ECnIymPUNY/uae4Al5NKepz6F7W92hHWzq0Kx+36ELQvBtoTxCeN7KwZMNW9BKecQCQ8AAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ClickType="Single" DisplayName="Click '2022'" sap:VirtualizedContainerService.HintSize="904,156" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8905c566-7b58-45b5-b65c-979688375bb3" Version="V1">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="1, 76, 45, 15" FriendlyName="'2022'" FullSelectorArgument="[String.Format(&quot;&lt;ctrl name='{0}' role='list item' /&gt;&quot;, CurrentYear)]" FuzzySelectorArgument="&lt;ctrl name='{{CurrentYear}}' role='list item' automationid='' check:text='{{CurrentYear}}' /&gt;" Guid="0b5f2af6-78f1-4918-85c1-0a787b8412e3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAATCAYAAADWOo4fAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADvSURBVEhL7ZRBCoQgFIY71xyoMwydwmN0gpadIphF0K7NMAtp1e5NL7TS/B1BoSl68EP8/qifPc2KoqCzlpSSrgGQPV+n0w1wtCBA3sxjc7V1t46Vg3JNH+XhPInEtQcQHxKlDvVU0UhC6O+BcttHeThPOrkBDHUk3mphPv2mX8Ye9eg41U0+yI9TAMB66rsNW0B2PsyP008A7mG96RCAbT7Ej5UHgH+5uagfYJ/3+2kEAEC/wjuA+hv56eQGcPb2pOlVaV2vEMojP6GcAHyydi0twJtSVaknEuW98yQSl/cS/7tugKNlAJy1LgAg6QsQfRvn/BKpvgAAAABJRU5ErkJggg==" InformativeScreenshot="bd9e89e6194cf22f722776d8aac69fc8.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='ComboLBox' idx='*' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="904,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;select previous year &quot;+ CurrentYear.ToString]" />
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="904,51" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,248" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NSelectItem DisplayName="Select Item 'F'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="[CurrentYear.ToString.Trim]" ScopeIdentifier="8905c566-7b58-45b5-b65c-979688375bb3" Version="V1">
+                          <uix:NSelectItem.Items>
+                            <scg:List x:TypeArguments="x:String" Capacity="50">
+                              <x:String>1960</x:String>
+                              <x:String>1961</x:String>
+                              <x:String>1962</x:String>
+                              <x:String>1963</x:String>
+                              <x:String>1964</x:String>
+                              <x:String>1965</x:String>
+                              <x:String>1966</x:String>
+                              <x:String>1967</x:String>
+                              <x:String>1968</x:String>
+                              <x:String>1969</x:String>
+                              <x:String>1970</x:String>
+                              <x:String>1971</x:String>
+                              <x:String>1972</x:String>
+                              <x:String>1973</x:String>
+                              <x:String>1974</x:String>
+                              <x:String>1975</x:String>
+                              <x:String>1976</x:String>
+                              <x:String>1977</x:String>
+                              <x:String>1978</x:String>
+                              <x:String>1979</x:String>
+                              <x:String>1980</x:String>
+                              <x:String>1981</x:String>
+                              <x:String>1982</x:String>
+                              <x:String>1983</x:String>
+                              <x:String>1984</x:String>
+                              <x:String>1985</x:String>
+                              <x:String>1986</x:String>
+                              <x:String>1987</x:String>
+                              <x:String>1988</x:String>
+                              <x:String>1989</x:String>
+                              <x:String>1990</x:String>
+                              <x:String>1991</x:String>
+                              <x:String>1992</x:String>
+                              <x:String>1993</x:String>
+                              <x:String>1994</x:String>
+                              <x:String>1995</x:String>
+                              <x:String>1996</x:String>
+                              <x:String>1997</x:String>
+                              <x:String>1998</x:String>
+                              <x:String>1999</x:String>
+                              <x:String>2000</x:String>
+                              <x:String>2001</x:String>
+                              <x:String>2002</x:String>
+                              <x:String>2003</x:String>
+                              <x:String>2004</x:String>
+                              <x:String>2005</x:String>
+                              <x:String>2006</x:String>
+                              <x:String>2007</x:String>
+                              <x:String>2008</x:String>
+                              <x:String>2009</x:String>
+                            </scg:List>
+                          </uix:NSelectItem.Items>
+                          <uix:NSelectItem.Target>
+                            <uix:TargetAnchorable DesignTimeRectangle="825, 273, 64, 23" ElementType="DropDown" FriendlyName="'2017'" FullSelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='cbxYearFrom' /&gt;&lt;ctrl role='combo box' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='cbxYearFrom' /&gt;&lt;ctrl role='combo box' automationid='' /&gt;" Guid="dd8a12f2-a1f7-4088-b693-befbc40768c8" InformativeScreenshot="778e71903f76c6a21e3a104ebde2a3bd.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='HwndWrapper*' title='Hubble [JPD910]' /&gt;" SearchSteps="Selector, FuzzySelector" WaitForReadyArgument="None">
+                              <uix:TargetAnchorable.Anchors>
+                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                  <uix:Target DesignTimeRectangle="758, 270, 15, 35" ElementType="Text" FriendlyName="'F'" FullSelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='lblRangeFrom' /&gt;&lt;ctrl name='F' role='text' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='lblRangeFrom' /&gt;&lt;ctrl name='F' role='text' automationid='' check:text='F' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABMAAAAnCAYAAADtu3N3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABmSURBVEhL7dDLCYAwEIThLS8FWU5a2BpsJalkfBCJiggjexCdH+YQAt9hDYEJ4wvB3H1dGFZrFUYkjI/ECnIymPUNY/uae4Al5NKepz6F7W92hHWzq0Kx+36ELQvBtoTxCeN7KwZMNW9BKecQCQ8AAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                                </scg:List>
+                              </uix:TargetAnchorable.Anchors>
+                            </uix:TargetAnchorable>
+                          </uix:NSelectItem.Target>
+                        </uix:NSelectItem>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
+                  <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="904,51" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                    <ui:CommentOut.Body>
+                      <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,248" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'WindowsForms10.COMBOBOX...'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="tab" KeyModifiers="None" SpecialKey="True">
+                          <ui:SendHotkey.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2fdc0cb2-3625-43a5-ba79-ff7c2d837ffb" InformativeScreenshot="57e8093aa5948296b21361144858a504" Selector="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='cbxYearFrom' /&gt;" WaitForReady="INTERACTIVE">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                            </ui:Target>
+                          </ui:SendHotkey.Target>
+                        </ui:SendHotkey>
+                      </Sequence>
+                    </ui:CommentOut.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:CommentOut>
+                  <uix:NClick ClickType="Single" DisplayName="Click 'T'" sap:VirtualizedContainerService.HintSize="904,156" sap2010:WorkflowViewState.IdRef="NClick_10" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8905c566-7b58-45b5-b65c-979688375bb3" Version="V1">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="909, 281, 48, 23" ElementType="DropDown" FriendlyName="'2'" FullSelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='cbxPeriodTo' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='cbxPeriodTo' /&gt;" Guid="8ca89967-720e-4842-b2ee-b167df092e12" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADQAAAAbCAYAAAAzgqwIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADaSURBVFhH7ZXBDcMgDEXZiV04sAyD0AMLcGIChuBeJnFlRaSgUESkKjEES08K/rk8OQ4MJqt5hay1Q5OqEIoxDskSos4Sos5zhYxkwNgGV/6QU6FPyCtQJp0NSMZB+SwnRPeEvnhQ/Doh51y1j9SyQuj13h7aQjghCaaa/ZcQAgghQGt9yLCHGb6T909PCHfpyh2qSf2SQU4I4ad2zw8hl2rJIJ1C1+5NjSTVkkH6hIwEJk3ZuwEUackgXUJe8f0Oon4X9U1oIJYQdZYQdZ4jNDKpdqFZajIhgA+YGcU/pCLDuQAAAABJRU5ErkJggg==" InformativeScreenshot="6ed50ee00593cffd827bdfde43a85245.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='HwndWrapper*' title='Hubble [JPD910]' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="893, 278, 16, 35" ElementType="Text" FriendlyName="'T'" FullSelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='lblRangeTo' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='lblRangeTo' check:text='T' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAAnCAYAAAAPZ2gOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABjSURBVEhL7c7BCcAgDIXhjOdAjuMKmcFVzCSv2FYKhR40OQh9P7yDED4UBEfQXxioqudCQTMj6Iigv0mwoSSByHsJpV0X6z+sGZLr/XgiOBHB0Tr40U/BvjBwRNAfQX+7g8ABT5XfAxVReNsAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ClickType="Single" DisplayName="Click '4'" sap:VirtualizedContainerService.HintSize="904,156" sap2010:WorkflowViewState.IdRef="NClick_11" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8905c566-7b58-45b5-b65c-979688375bb3" Version="V1">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="1, 46, 46, 15" FriendlyName="'4'" FullSelectorArgument="[String.Format(&quot;&lt;ctrl name='T' role='list' /&gt;&lt;ctrl name='{0}' role='list item' /&gt;&quot;, CurrentMonth)]" FuzzySelectorArgument="[String.Format(&quot;&lt;ctrl name='T' role='list' /&gt;&lt;ctrl name='{0}' role='list item' automationid='' check:text='4' /&gt;&quot;, CurrentMonth)]" Guid="d39c063a-d0e9-4a32-8d06-84b6b69d68f1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAATCAYAAADWOo4fAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACISURBVEhL7dO9CcAgEAVg53Ky4BROY+kUgRQBOxtxALuXHAkhf6SNTzx4qNj4qaeMMWAtOXsbADVMlOmAv/MJ0L4AKUO/7NWSD0CEky5hBcjtO58xUwLsevAxbiMfIMCmAmvXOSNAvs7sw7bmA+yNe6+KEY8XuISzB06hBxCkA/7OAWCtBgAGC143kNmIQCkdAAAAAElFTkSuQmCC" InformativeScreenshot="43b649d2264f853d65b3190d5695300c.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='ComboLBox' idx='*' /&gt;" SearchSteps="Selector, Image" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="904,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;select previous months in To &quot;+ CurrentMonth.ToString]" />
+                  <uix:NClick ClickType="Single" DisplayName="Click 'T'" sap:VirtualizedContainerService.HintSize="904,156" sap2010:WorkflowViewState.IdRef="NClick_12" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8905c566-7b58-45b5-b65c-979688375bb3" Version="V1">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="961, 281, 64, 23" ElementType="DropDown" FriendlyName="'2022'" FullSelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='cbxYearTo' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='cbxYearTo' /&gt;" Guid="c3d54635-115f-4ee1-b8cc-9b3489d7d8b0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEQAAAAbCAYAAADFyymQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAExSURBVFhH7ZbRDYQgDIbZiV18YBkG8YUFfHIChnAAJ+ldoyhUSupFLya2yZecPw0JnxxoQKsoFUJqEzIMw6tJVQiZ5/mVqBCCCiGoEIIKIagQglhIcAaMWbA+7mPBVXOun53nIciERA8+pOcAzljwMf12EGjO9bPzPAfxDtmJ4O26ENwdLmxj0dvKW8/6Rfm1jONYzZHa2A9C9l1xEEAE0X5Zfh3TNEHXddD3/WEMMxzDnjw/LQTPgCRBIiTvl+RXU5PCyUBOCMEtXi6iLeTY387vI5fSkoEIhTD/d/YM4c4HLr+fJKUlA5EJqZ4NX763hq3dMlw/l/8JFNGSgYiE4JtP3w6Hbwhc5Jq59Url+pvzPATZDnkRKoSgQggqhKBCCCqEwAp5M6k2IVpLqZCiAD7PEWfMIj7r2QAAAABJRU5ErkJggg==" InformativeScreenshot="c3ad14ad0a81d6eda842720ca00c09d6.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='HwndWrapper*' title='Hubble [JPD910]' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="893, 278, 16, 35" ElementType="Text" FriendlyName="'T'" FullSelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='lblRangeTo' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow2' /&gt;&lt;wnd ctrlname='JDEDateAndPeriodRangeControl' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='dateRangeControlsPanel' /&gt;&lt;wnd ctrlname='prcPeriods' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='lblRangeTo' check:text='T' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAAnCAYAAAAPZ2gOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABjSURBVEhL7c7BCcAgDIXhjOdAjuMKmcFVzCSv2FYKhR40OQh9P7yDED4UBEfQXxioqudCQTMj6Iigv0mwoSSByHsJpV0X6z+sGZLr/XgiOBHB0Tr40U/BvjBwRNAfQX+7g8ABT5XfAxVReNsAAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ClickType="Single" DisplayName="Click '2022'" sap:VirtualizedContainerService.HintSize="904,156" sap2010:WorkflowViewState.IdRef="NClick_13" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8905c566-7b58-45b5-b65c-979688375bb3" Version="V1">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="1, 76, 45, 15" FriendlyName="'2022'" FullSelectorArgument="[String.Format(&quot;&lt;ctrl name='{0}' role='list item' /&gt;&quot;, CurrentYear)]" FuzzySelectorArgument="&lt;ctrl name='2022' role='list item' automationid='' check:text='2022' /&gt;" Guid="c26e795d-5184-4ed5-bd60-898be43118b9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAATCAYAAADWOo4fAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADvSURBVEhL7ZRBCoQgFIY71xyoMwydwmN0gpadIphF0K7NMAtp1e5NL7TS/B1BoSl68EP8/qifPc2KoqCzlpSSrgGQPV+n0w1wtCBA3sxjc7V1t46Vg3JNH+XhPInEtQcQHxKlDvVU0UhC6O+BcttHeThPOrkBDHUk3mphPv2mX8Ye9eg41U0+yI9TAMB66rsNW0B2PsyP008A7mG96RCAbT7Ej5UHgH+5uagfYJ/3+2kEAEC/wjuA+hv56eQGcPb2pOlVaV2vEMojP6GcAHyydi0twJtSVaknEuW98yQSl/cS/7tugKNlAJy1LgAg6QsQfRvn/BKpvgAAAABJRU5ErkJggg==" InformativeScreenshot="46cabce2258e3115ac08eada827860fe.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='ComboLBox' idx='*' /&gt;" SearchSteps="Selector, FuzzySelector, Image" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="904,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;select previous year in To &quot;+ CurrentYear.ToString]" />
+                  <uix:NClick ClickType="Single" DisplayName="Click 'Subtotals/Headers'" sap:VirtualizedContainerService.HintSize="904,156" sap2010:WorkflowViewState.IdRef="NClick_15" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8905c566-7b58-45b5-b65c-979688375bb3" Version="V1">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="776, 64, 114, 16" FriendlyName="'Subtotals/Headers'" FullSelectorArgument="&lt;ctrl automationid='subtotalsConsoleCheckBox' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='subtotalsConsoleCheckBox' role='client' check:text='Subtotals/Headers' /&gt;" Guid="d75860b6-4a34-4856-b810-070443106019" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHYAAAAUCAYAAABYm8lAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKmSURBVGhD7ZWtziJBEEX3vXgaHgOHQGBRKBQSSwgKgcChcBiQBEEIwRHSmzP57mxRdM9Plk3YyZykMt3V1dVVfWfgV2hpJK2wDaUVtqG0wjaUF2Fns1lta/lO3oR9Pp+VrRX2e/m4sOv1OnQ6ndyqQNzxePyZ/Xuqnkcvg8EgG6f2fLL2T+aqLezlcgmLxSIbe2EpiuIEcy6njKKG6jRbNbZqXLfbzeNSe+rUV8Ync9US9vF4hPF4nBlzLywichl1KWqoTrNVY6vEsa6vFVJ76tRXxidzJYW93W6ZkJpj8/k8a/Z6vWZzLyxQ3HQ6/Zn9wRdt54ztT7j2a47pktlj/fpFsD7F8vQ+YK6zeREVY39dqMHO7R6L9fvaRKoOG895PMtyMVY+SNWfFJavcrPZ5PPdbhd6vV7Y7/e5LyYs6LCii7FzxvrS1ZBd8/uUtyzWEosjj71oCzEW5imLnU/ushecsXrxwqZy4de4qP6ksNvtNvT7/ezrPJ/P2Xi1WuXrRcICRdnCbaGQagIoNrZPOS2pWMCPT+bPUz4vAPu8z+63+FzWdOmxOjD/t2XXbDymXIoBxflaofA/lq+WTaPRKEwmk5c1rEhYYG+sILBzv0bDfyusjyWn1vx51IlPeWys8HuE/Jg9T3i/cmNlwsZQjMXXD4XCnk6n7Od3OByG+/3+soZ5YUlsD6VwvU2MdTBPWyBjxfmmfCO2gaJYYnRxitOazwmcj+HXy2iJ7QGfV32IsjrUC/vKcoGNsah+USgstlwuw+FwePNjsS+Wg2X2giSm/DxtE/JhahbkVy5djsw26WO5UOY8MXseY1sTBlyOPV9oj8f6edp8ZXXY872wqVw2Jla/KBW2yGLC/u9w8U3gTdi61vKdvAjb0hxaYRtKK2wjCeE3HjQfSk10ZzsAAAAASUVORK5CYII=" InformativeScreenshot="2eac3724bc06a0d532887aa561779f11.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='HwndWrapper*' title='Hubble [JPD910]' /&gt;" SearchSteps="Selector, FuzzySelector, Image" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="904,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Unchecked subtotal&quot;]" />
+                  <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="904,3446" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[AccountsArr]">
+                    <ui:ForEach.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="Account" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="868,3321" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Object Account'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="826,216" sap2010:WorkflowViewState.IdRef="NTypeInto_5" InteractionMode="HardwareEvents" ScopeIdentifier="8905c566-7b58-45b5-b65c-979688375bb3" Text="[Account.ToString]" Version="V1">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable DesignTimeRectangle="460, 208, 188, 16" ElementType="InputBox" FriendlyName="'532335, 532341, 532333'" FullSelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow*' /&gt;&lt;wnd ctrlname='Object' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='panelInput' /&gt;&lt;wnd ctrlname='borderPanel' /&gt;&lt;wnd ctrlname='innerTextBoxBorderPanel' /&gt;&lt;wnd ctrlname='txtInput' aaname='Object Account' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow*' /&gt;&lt;wnd ctrlname='Object' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='panelInput' /&gt;&lt;wnd ctrlname='borderPanel' /&gt;&lt;wnd ctrlname='innerTextBoxBorderPanel' /&gt;&lt;wnd ctrlname='txtInput' aaname='Object Account' /&gt;" Guid="b4cab288-b530-444e-bc74-14e6cd6d8d30" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMAAAAAUCAYAAADbczI+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH8SURBVGhD7ZjdrcIwDIU7U7fpMJXYgqeOwAo8MARvTMAQuXF/EqfNIYXbNqAcfaoAyySu42MXqochpFwoAFI0FAApGgqAFA0FQIomEMD1VpvqVI1XY7rBatrzZKtMc/f+3cXb69t1tCJ/vE58X8y+cXr6fc6t9VTWe2P90zEKefKZvi/iCQQgB7BMWGe6yfZsTT0dpH3fOt/ONKfatM/hfdQf2tG+mH3jnBBfW0ROAGNhXRprn/vGyZPP1H0RzUwAU9IRcjCxhEpxxL6L/EN7et+QI+KU7t3cbAHNJwBce0mufHrWx1oqSgDh6PQjWCHj/xJLJ0g08g/sK/YNOCBO6ZzyWV4/FkCufCrg+mQC/AiWA/AdyD3LgmTKqNcHjPxT68z3TbNHnKr7/ksAmmPzmVqfeIAAlofQIx0lKNChy0W7m7DwH0F2S3TfF2wdpxSP89tMAJnyiezE8VIAsR+m3q465QvS64QgO2LbOKW4beecX4EIPhfAdnFqy8C7djIQF0D/78F4GLYo/GGrUS7dJTZioT+wa/S+a9gjTs1WE+DIfK65L+JQApBk+a7nukZ/eEu7e85UVz+6gT+0o32lIBbFJ+wcp0Z8UgLIFee7dhIFPgLl5ldGNx8xfpsvFcCsy34tvxInQXztBCDkCCgAUjQUACkaCoAUzMP8Acr1Umwda9IpAAAAAElFTkSuQmCC" InformativeScreenshot="40730c6a0d4b4c49416a1d48c3aa0df0.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='HwndWrapper*' title='Hubble [JPD910]' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="353, 200, 94, 35" ElementType="Text" FriendlyName="'Object Account'" FullSelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow0' /&gt;&lt;wnd ctrlname='Object' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='lblLabel' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='ReportInputControl' /&gt;&lt;wnd ctrlname='layoutContainer' /&gt;&lt;wnd ctrlname='layout' /&gt;&lt;wnd ctrlname='tableLayoutRow0' /&gt;&lt;wnd ctrlname='Object' /&gt;&lt;wnd ctrlname='tableLayoutPanel' /&gt;&lt;wnd ctrlname='lblLabel' check:text='Object Account' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGIAAAAnCAYAAAD0MJ3RAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH5SURBVGhD7ZYNkoMgDEY9ngfiON7Fq3gT1g9UEuRHW7vNdL43050RaEJ4ke3giQkowggUYQSKMAJFGIEijEARRqAII1CEESjCCBRhBIowAkUYgSKMQBFGqIpYptEPw5A+bt5mwOzd4Na/JTA3eLX8URY/jYMfp2V7/g2KIoKEcVpLTsxOymiJeA/kaUpcJj8697H879Ldf4WzCBRaLBKdOPrYiN8TgSbB/KsFf5rnRMwuu4YSSBKvhE0E1p6urkxSELut6Ywj/hEveyMjaIYtRmmfN3IF1Lg4QIzL/Or5XPv+vf7+65xEoONq92+aw2bWZOrw9w0JEXlBx+Fhzf52aZodpQ5f5AnUYlbGgwQ5LtZ1RYjasSex9l/eiP1aiJuRhxDn1NuCQdE1qlMaOVqF5HPquRbzxvhRQ1dE3gDp+TkRoVP0IUfa/yOqIgq7wtr7IhA3k4rPtrgWs5rLvIgVBNN3XPzJmDYeDyUe/P5ckBSkXrkWEtVCilJF3ru5TuN5DWkuyPyGCBCSi85Lhw5i8kmsScmzjeIAS3HUeGG9agQMlwvE+OWYzXEdX9aPn8tX34gjZrb/HlURr5NvlFzheRHoiJvdQJ4UEe5cvMqF+5h0+cDVRF6BIoxAEUagCCNQhBEowggUYQSKMAJFGIEijEARRqAIE3j/B9g4coxy2aO0AAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uix:NTypeInto>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="826,51" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;input obj acc &quot;+Account.ToString]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <uix:NClick ClickType="Single" DisplayName="Click 'Run'" sap:VirtualizedContainerService.HintSize="826,51" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8905c566-7b58-45b5-b65c-979688375bb3" Version="V1">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable DesignTimeRectangle="16, 65, 32, 32" ElementType="Icon" FriendlyName="'graphic PART_Image'" FullSelectorArgument="&lt;ctrl automationid='runBar' /&gt;&lt;ctrl automationid='PART_Image' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='runBar' /&gt;&lt;ctrl automationid='PART_Image' role='graphic' /&gt;" Guid="e2a5ee99-5ef7-41bd-9732-e2338ca7cdb0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANaSURBVFhH7ZfbS1RRFMYlgh6ix4hASqIieomQIurfCIqISIikqKegqCgqzBuSpZPXSo2iCDUv2EUpNS/jZaB0ppszSqTOjOlYgU44Lyu/DQf2nrPOOdtxhB56+MGZtS/n22et/e09KbFYjP4l/gtyYsmCFhYWKBAeo2rPEzpaf4p2lO2ndQVpAjwjVjX4mPyhUdGXm8MObUHRP1Fq9r2ibSV76fzra/TO30uhSJjm5ufEiwGeEesKuOlC6w3acjedGr0vxFhuTg4tQb6JT7Sz/ADVDjWKl3J9OOaj82LM9tJ9Yg6uTzy2grDqiv4aym4vpImZSbaPDhiLOUrcDxzTaCkIA6+/zaf7A4/Y9kTAXFff5NqKshSEwckUY4A5y/uq2TbACvJNfKas9luOnzdR8jqLaHjcx7aZBGFHYPuOTydeM05MRkJit3K7zySoyftS7Iz4eLKpG2qi58MtprgiCCmCcp2tndl0jiK/I2ybDtFolNJc6aayUATBgWF6csyKlJz1tCY/VbjyUoxP5lJrFo2EAkpMEYTjAA4sx6yAIAN8Vc+392w/O3oC/VQ58FCJKYKON5wRBSfHrJAFGRypy6Spnz/Y/hzh2Sk6XHtSiSmCsFLYvRyzghMEVudtpOLeSq15UEc47+SYIggntq73cGJkUot3UXegz3E+LED+rQhaW7A5aYIMcjvusOMNVuVsUH4nPWUG+EKdIz22C3RM2bH60xRcRlEDrLiop0LLy7ABDtWeUGKKIBx83YuXKzlmBSfm4LMMCs2G2f4c7tFB00GrCPIvmtTFRbOSY1bIQraW7KH+MQ/bzw5cRb4ER5SYIgj5Rk516ghC4NQwtkScGmM2uXabakwRBHAH1jlcMxrO0vSvabZNBxys3HtMgqAcu21yJqjEkwn+CCAT2GXxbSZBwDv+kXI6bpviyaKgy0UfvnvZNlYQKHNXrcgVtsbzlAq7S9k2YCkIxXalLVtcL7j2RMBt4nLbTVuztBQEMNDVe0+kbzk1hZpBmnDo2okBtoIMUFPwmvrhZrYQrcAGafC2iLFWNROPliCAybFVce1EKnG5gvXLnoVnxODAMD34DO7Ouucj0BZkgE/+NegXhohzCBYhOzZiOA7gwE7p4ViyoJXmvyB7YvQXvqirX/i0FO8AAAAASUVORK5CYII=" InformativeScreenshot="c4d63a62a34b317219eda1c1b545df4e.png" ScopeSelectorArgument="&lt;wnd app='hubble.exe' cls='HwndWrapper*' title='Hubble [JPD910]' /&gt;" SearchSteps="Selector, FuzzySelector, Image" WaitForReadyArgument="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="21, 101, 24, 15" ElementType="Text" FriendlyName="'Run'" FullSelectorArgument="&lt;ctrl automationid='runBar' /&gt;&lt;ctrl name='Run ' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='runBar' /&gt;&lt;ctrl name='Run ' role='text' automationid='' check:text='Run' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAATCAYAAACDW21BAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACYSURBVEhL7ZPBDcAgCEW7l8s4i5M4iYu4CRebb0ICVO2F2ouHl0rBvADtRURtJ0fozr/CEIKilKKKPXgIa639DBlimfdgKhzFHiw7jDEOczbGOefcn3zmOst0hyklVYh3KyHXv61i2CGwl6TAxqucZTpSjEWO5nOhjbFP/k14bO5CdMgfDksA9iVr7T0bS5RwB0fozmYhtRuId6qvFv8beQAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NClick.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uix:NClick>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="826,51" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Clicked open button to fetch the GL010 report - &quot;+Account.ToString]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <Delay Duration="00:00:10" sap:VirtualizedContainerService.HintSize="826,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                          <ui:Activate DelayMS="{x:Null}" DelayBefore="1000" DisplayName="Activate 'client'" sap:VirtualizedContainerService.HintSize="826,51" sap2010:WorkflowViewState.IdRef="Activate_2">
+                            <ui:Activate.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0768d609-9c18-4bed-b2f4-df20f84a61ad" InformativeScreenshot="9f1c05a695c5a0305231f0dcd53fa5e5" Selector="&lt;ctrl role='page tab list' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Activate.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:Activate>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="826,91" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;Export excel activated&quot;]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:LogMessage>
+                          <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="826,118" sap2010:WorkflowViewState.IdRef="SendHotkey_5" Key="e" KeyModifiers="Ctrl">
+                            <ui:SendHotkey.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="6904ddfd-8519-44ba-9ea2-36d1c2b309c2">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:SendHotkey.Target>
+                          </ui:SendHotkey>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="826,91" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Clicked export button to open the excel&quot;]" />
+                          <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="826,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                          <ui:UiElementExists DisplayName="Element Exists 'Menu Item'" Exists="[IsExcelOpen]" sap:VirtualizedContainerService.HintSize="826,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                            <ui:UiElementExists.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="82db7781-574f-401b-b8c7-a7f1f803a4e2" InformativeScreenshot="6190645d00d04b10b08c782f07905f46" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='GL010-GL Transaction Detail_with Subledger*' /&gt;&lt;uia omit:automationid='GL010-GL Transaction Detail_with Subledger*' cls='ExcelBookTabControl' name='GL010-GL Transaction Detail_with Subledger*' /&gt;&lt;uia omit:automationid='SheetTab' name='GL010-GL Transaction Detail_wit' role='Sheet Tab' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:UiElementExists.Target>
+                          </ui:UiElementExists>
+                          <Delay Duration="00:00:09" sap:VirtualizedContainerService.HintSize="826,22" sap2010:WorkflowViewState.IdRef="Delay_5" />
+                          <If Condition="[IsExcelOpen]" sap:VirtualizedContainerService.HintSize="826,720" sap2010:WorkflowViewState.IdRef="If_2">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: GL010-GL Transaction Detail_with Subledger Description2.xlsx - Excel" sap:VirtualizedContainerService.HintSize="434,561" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" OpenMode="Never" ScopeGuid="b3e00dc6-10de-4c4f-8cd1-6e44b56612f5" Version="V1">
+                                <uix:NApplicationCard.Body>
+                                  <ActivityAction x:TypeArguments="x:Object">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                                    </ActivityAction.Argument>
+                                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,272" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <uix:NKeyboardShortcuts DelayBetweenShortcuts="{x:Null}" ActivateBefore="True" ClickBeforeMode="None" ContinueOnError="True" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="334,178" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" ScopeIdentifier="b3e00dc6-10de-4c4f-8cd1-6e44b56612f5" Shortcuts="[d(hk)][k(f12)][u(hk)]" Version="V1" />
+                                    </Sequence>
+                                  </ActivityAction>
+                                </uix:NApplicationCard.Body>
+                                <uix:NApplicationCard.TargetApp>
+                                  <uix:TargetApp Area="-8, -8, 1382, 744" FilePath="C:\Program Files\Microsoft Office\root\Office16\excel.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGvSURBVFhH7Zc9SEJRGIZdo9B+pRoShwhChIoQhCBbgsgpGgJpKyKIaAmClqDBoSmyLQikrbaCppaksdvUGDQ1FjQ0fvlezpGjfefcn86FkF548Hr4vvO+nh/U2L+8lK6uO3XIL1O1gyA4wkYvzsQEY2JE2OjFmZjgTEwIG704ExOciQlhoxdnYoIzMSFs9Bo5LpEXqcpq+ADd+wWnDoWhZ3eWBjYKbojfBGAn90vH/CjFt/ON9zKIX/5WgNRhke5fnlz2bk4a4zOVtcY4ntUe6ytw+nBJ0MfXpxsIYzCG8Npabz0ATGEOle/OafFsx32GskcrTbUgkjOweVV2DRFEfnqE4WojO4TSGHp9f2NrQGQBrp9rwp7fe0l8OkXJpQkaLOVcuBoTbAC579gCeR6wLVyt9QA4hFhyCPsOIPVWqFgPwF1DGeji8bapFlgNoF45dcnlrYBQo/ZEcgaC0BYBQn8dJ7byPwIERfzs0KtzfIh0dGWGKZFLRxugd26MvEguT7KT+0HY6NW3kCET/cUsO7FfhI1eXJNNhI1eXJNNhI1e9SKntcki3n/N2lyx2De7iUsgzKBEqQAAAABJRU5ErkJggg==" InformativeScreenshot="257187118528b1bb84756613a30f13b1.png" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='GL010-GL Transaction Detail_with Subledger Description2.xlsx - E*'/&gt;" />
+                                </uix:NApplicationCard.TargetApp>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </uix:NApplicationCard>
+                            </If.Then>
+                            <If.Else>
+                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke RetryGL010toExport workflow" sap:VirtualizedContainerService.HintSize="347,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Hubble\WorkFlows\RetryGL010toExport.xaml">
+                                <ui:InvokeWorkflowFile.Arguments>
+                                  <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                </ui:InvokeWorkflowFile.Arguments>
+                              </ui:InvokeWorkflowFile>
+                            </If.Else>
+                          </If>
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type Into 'Edit'" EmptyField="True" sap:VirtualizedContainerService.HintSize="826,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="False">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6ca8bc5a-6275-4ee6-902d-72ddac115ef8" InformativeScreenshot="f624e0fc22de38d00b5bd7415a6aac6d" Selector="&lt;wnd app='excel.exe' cls='#32770' title='Save As' /&gt;&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' omit:cls='ComboBox' /&gt;&lt;wnd omit:ctrlid='1001' /&gt;" WaitForReady="INTERACTIVE">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                              </ui:Target>
+                            </ui:TypeInto.Target>
+                            <ui:TypeInto.Text>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </ui:TypeInto.Text>
+                          </ui:TypeInto>
+                          <Switch x:TypeArguments="x:Int32" DisplayName="Switch" Expression="[Convert.ToInt32(Account)]" sap:VirtualizedContainerService.HintSize="826,401" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+                            <Switch.Default>
+                              <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text 'Edit'" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SetValue_3" Text="[in_Config(&quot;HubbleDownload&quot;).ToString+&quot;GL010_200330.xlsx&quot;]">
+                                <ui:SetValue.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d53bd4d7-cdf1-4aba-9fde-58a556991e64" InformativeScreenshot="ada20a6cf1312b96d25534f58ecb5f62" Selector="&lt;wnd app='excel.exe' cls='#32770' title='Save As' /&gt;&lt;wnd aaname='Explorer Pane' omit:cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' omit:cls='ComboBox' /&gt;&lt;wnd omit:ctrlid='1001' /&gt;" WaitForReady="NONE">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                  </ui:Target>
+                                </ui:SetValue.Target>
+                              </ui:SetValue>
+                            </Switch.Default>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="200331" DisplayName="Set Text 'Edit'" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[in_Config(&quot;HubbleDownload&quot;).ToString+&quot;GL010_200331.xlsx&quot;]">
+                              <ui:SetValue.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d53bd4d7-cdf1-4aba-9fde-58a556991e64" InformativeScreenshot="ada20a6cf1312b96d25534f58ecb5f62" Selector="&lt;wnd app='excel.exe' cls='#32770' title='Save As' /&gt;&lt;wnd aaname='Explorer Pane' omit:cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' omit:cls='ComboBox' /&gt;&lt;wnd omit:ctrlid='1001' /&gt;" WaitForReady="NONE">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                </ui:Target>
+                              </ui:SetValue.Target>
+                            </ui:SetValue>
+                            <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" x:Key="200332" DisplayName="Set Text 'Edit'" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SetValue_2" Text="[in_Config(&quot;HubbleDownload&quot;).ToString+&quot;GL010_200332.xlsx&quot;]">
+                              <ui:SetValue.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d53bd4d7-cdf1-4aba-9fde-58a556991e64" InformativeScreenshot="ada20a6cf1312b96d25534f58ecb5f62" Selector="&lt;wnd app='excel.exe' cls='#32770' title='Save As' /&gt;&lt;wnd aaname='Explorer Pane' omit:cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' omit:cls='ComboBox' /&gt;&lt;wnd omit:ctrlid='1001' /&gt;" WaitForReady="NONE">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                </ui:Target>
+                              </ui:SetValue.Target>
+                            </ui:SetValue>
+                          </Switch>
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="826,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2d33c8a1-072d-41f5-8934-3140f7f13166" InformativeScreenshot="3ab4d86028af04dc56a4a56e628db813" Selector="&lt;wnd app='excel.exe' cls='#32770' title='Save As' /&gt;&lt;wnd omit:ctrlid='1' title='&amp;amp;Save' /&gt;" WaitForReady="INTERACTIVE">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CloseExcelPopup workflow" sap:VirtualizedContainerService.HintSize="826,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Hubble\WorkFlows\CloseExcelPopup.xaml">
+                            <ui:InvokeWorkflowFile.Arguments>
+                              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                            </ui:InvokeWorkflowFile.Arguments>
+                          </ui:InvokeWorkflowFile>
+                          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Application: GL007-Account Balance Inquiry By Object Account.xlsx - Excel" sap:VirtualizedContainerService.HintSize="592,51" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" OpenMode="Never" ScopeGuid="013e387c-454e-45ab-a3e3-2fa369c51b34" Version="V1">
+                            <uix:NApplicationCard.Body>
+                              <ActivityAction x:TypeArguments="x:Object">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                                </ActivityAction.Argument>
+                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,84" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </Sequence>
+                              </ActivityAction>
+                            </uix:NApplicationCard.Body>
+                            <uix:NApplicationCard.TargetApp>
+                              <uix:TargetApp Area="-8, -8, 1382, 744" FilePath="C:\Program Files\Microsoft Office\root\Office16\excel.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGvSURBVFhH7Zc9SEJRGIZdo9B+pRoShwhChIoQhCBbgsgpGgJpKyKIaAmClqDBoSmyLQikrbaCppaksdvUGDQ1FjQ0fvlezpGjfefcn86FkF548Hr4vvO+nh/U2L+8lK6uO3XIL1O1gyA4wkYvzsQEY2JE2OjFmZjgTEwIG704ExOciQlhoxdnYoIzMSFs9Bo5LpEXqcpq+ADd+wWnDoWhZ3eWBjYKbojfBGAn90vH/CjFt/ON9zKIX/5WgNRhke5fnlz2bk4a4zOVtcY4ntUe6ytw+nBJ0MfXpxsIYzCG8Npabz0ATGEOle/OafFsx32GskcrTbUgkjOweVV2DRFEfnqE4WojO4TSGHp9f2NrQGQBrp9rwp7fe0l8OkXJpQkaLOVcuBoTbAC579gCeR6wLVyt9QA4hFhyCPsOIPVWqFgPwF1DGeji8bapFlgNoF45dcnlrYBQo/ZEcgaC0BYBQn8dJ7byPwIERfzs0KtzfIh0dGWGKZFLRxugd26MvEguT7KT+0HY6NW3kCET/cUsO7FfhI1eXJNNhI1eXJNNhI1e9SKntcki3n/N2lyx2De7iUsgzKBEqQAAAABJRU5ErkJggg==" InformativeScreenshot="ddd353a130d79b924dd8e3ec7a40b113.png" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='*' /&gt;" />
+                            </uix:NApplicationCard.TargetApp>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uix:NApplicationCard>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="592,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;GL010 report has been downloaded for the &quot;+ Account.ToString]" />
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEach.Body>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:ForEach>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-8, -8, 1382, 744" IconBase64="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" InformativeScreenshot="796cb989f6eca1fa8ad132a9075a51d0.png" Selector="&lt;wnd app='hubble.exe' cls='HwndWrapper*' title='Hubble [JPD910]'/&gt;" />
+            </uix:NApplicationCard.TargetApp>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uix:NApplicationCard>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="792,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="376,283" sap2010:WorkflowViewState.IdRef="Sequence_23">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Error" Message="[&quot;SE: &quot;+exception.Message]" />
+              <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[out_sysexcep]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+  </Sequence>
+</Activity>
